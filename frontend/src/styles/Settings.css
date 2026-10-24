@@ -1,0 +1,282 @@
+/* Settings.css - Modern responsive styles for the settings modal */
+
+:root {
+  --primary: #4361EE;
+  --primary-dark: #3A56D4;
+  --success: #4CAF50;
+  --error: #F44336;
+  --warning: #FF9800;
+  --bg-light: #FFFFFF;
+  --bg-gray: #F5F7FA;
+  --text-dark: #333333;
+  --text-medium: #666666;
+  --text-light: #999999;
+  --border-color: #E0E0E0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --modal-width: 500px;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* Modal backdrop - covers entire screen */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Modal container */
+.settings-modal {
+  background-color: var(--bg-light);
+  width: 90%;
+  max-width: var(--modal-width);
+  max-height: 90vh;
+  border-radius: var(--border-radius);
+  box-shadow: 0 5px 20px var(--shadow-color);
+  padding: 24px;
+  position: relative;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: var(--text-medium);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.close-btn:hover {
+  background-color: var(--bg-gray);
+  color: var(--text-dark);
+}
+
+/* Headings */
+.settings-modal h2 {
+  font-size: 24px;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.settings-modal h3 {
+  font-size: 20px;
+  color: var(--text-dark);
+  margin: 24px 0 16px;
+  font-weight: 500;
+}
+
+.settings-modal h4 {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin: 20px 0 12px;
+  font-weight: 500;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-medium);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.form-group input:disabled {
+  background-color: var(--bg-gray);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error styles */
+.error-input {
+  border-color: var(--error) !important;
+}
+
+.error-text {
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Success tick animation */
+.tick {
+  color: var(--success);
+  margin-left: 8px;
+  display: inline-block;
+  animation: popIn 0.3s ease-out;
+}
+
+/* Button styles */
+.primary-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  margin-top: 8px;
+  width: 100%;
+}
+
+.primary-btn:hover {
+  background-color: var(--primary-dark);
+}
+
+.primary-btn:active {
+  transform: scale(0.98);
+}
+
+/* Divider */
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 24px 0;
+}
+
+/* Status message */
+.message {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--success);
+  border: 1px solid rgba(76, 175, 80, 0.2);
+}
+
+.error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--error);
+  border: 1px solid rgba(244, 67, 54, 0.2);
+}
+
+/* Slot information */
+.slot-info {
+  background-color: var(--bg-gray);
+  border-radius: var(--border-radius);
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.slot-info p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: var(--text-medium);
+}
+
+.slot-info strong {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.slot-info hr {
+  margin: 12px 0;
+}
+
+.no-bookings {
+  color: var(--text-light);
+  text-align: center;
+  font-style: italic;
+  margin: 16px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .settings-modal {
+    width: 95%;
+    padding: 16px;
+  }
+  
+  .settings-modal h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .settings-modal h3 {
+    font-size: 18px;
+  }
+  
+  .form-group input {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+  
+  .primary-btn {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+  
+  .slot-info {
+    padding: 12px;
+  }
+}
